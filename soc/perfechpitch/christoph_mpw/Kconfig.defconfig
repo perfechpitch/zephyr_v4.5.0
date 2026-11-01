@@ -1,0 +1,15 @@
+# SPDX-FileCopyrightText: Copyright The Zephyr Project Contributors
+# SPDX-License-Identifier: Apache-2.0
+
+if SOC_CHRISTOPH_MPW
+
+config NUM_IRQS
+	default 128
+
+config SYS_CLOCK_HW_CYCLES_PER_SEC
+	default 1000000000
+
+config BUILD_OUTPUT_BIN
+	default y
+
+endif # SOC_CHRISTOPH_MPW

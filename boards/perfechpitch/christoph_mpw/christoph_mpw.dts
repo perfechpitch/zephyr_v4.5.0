@@ -1,0 +1,22 @@
+/* SPDX-FileCopyrightText: Copyright The Zephyr Project Contributors */
+/* SPDX-License-Identifier: Apache-2.0 */
+
+/dts-v1/;
+
+#include <perfechpitch/christoph_mpw.dtsi>
+
+/ {
+	model = "Christoph MPW Evaluation Board";
+	compatible = "perfechpitch,christoph-mpw";
+
+	chosen {
+		zephyr,console = &uart0;
+		zephyr,shell-uart = &uart0;
+		zephyr,sram = &dtcm0;
+		zephyr,flash = &itcm0;
+	};
+};
+
+&uart0 {
+	status = "okay";
+};

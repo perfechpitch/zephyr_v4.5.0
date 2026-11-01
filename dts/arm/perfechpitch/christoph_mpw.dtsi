@@ -1,0 +1,62 @@
+/* SPDX-FileCopyrightText: Copyright The Zephyr Project Contributors */
+/* SPDX-License-Identifier: Apache-2.0 */
+
+#include <arm/armv7-m.dtsi>
+#include <mem.h>
+
+/ {
+	cpus {
+		#address-cells = <1>;
+		#size-cells = <0>;
+		timebase-frequency = <1000000000>;
+
+		cpu@0 {
+			device_type = "cpu";
+			compatible = "arm,cortex-m7";
+			reg = <0>;
+		};
+	};
+
+	itcm0: memory@0 {
+		compatible = "mmio-sram";
+		reg = <0x00000000 DT_SIZE_K(256)>;
+	};
+
+	dtcm0: memory@20000000 {
+		compatible = "mmio-sram";
+		reg = <0x20000000 DT_SIZE_K(256)>;
+	};
+
+	shared_ram: memory@20200000 {
+		compatible = "mmio-sram";
+		reg = <0x20200000 DT_SIZE_K(256)>;
+	};
+};
+
+&nvic {
+	arm,num-irq-priority-bits = <3>;
+};
+
+&{/soc} {
+	uart0: serial@40411000 {
+		compatible = "snps,dw-apb-uart", "ns16550";
+		reg = <0x40411000 0x1000>;
+		interrupts = <5 0>;
+		reg-shift = <2>;
+		clock-frequency = <25000000>;
+		current-speed = <115200>;
+		dlf = <9>;
+		status = "disabled";
+	};
+
+	uart1: serial@40412000 {
+		compatible = "snps,dw-apb-uart", "ns16550";
+		reg = <0x40412000 0x1000>;
+		interrupts = <6 0>;
+		reg-shift = <2>;
+		clock-frequency = <25000000>;
+		current-speed = <115200>;
+		dlf = <9>;
+		status = "disabled";
+	};
+};

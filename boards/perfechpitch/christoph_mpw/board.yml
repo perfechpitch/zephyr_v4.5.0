@@ -1,0 +1,9 @@
+# SPDX-FileCopyrightText: Copyright The Zephyr Project Contributors
+# SPDX-License-Identifier: Apache-2.0
+
+board:
+  name: christoph_mpw
+  full_name: Christoph MPW Evaluation Board
+  vendor: perfechpitch
+  socs:
+  - name: christoph_mpw

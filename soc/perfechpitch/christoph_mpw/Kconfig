@@ -1,0 +1,9 @@
+# SPDX-FileCopyrightText: Copyright The Zephyr Project Contributors
+# SPDX-License-Identifier: Apache-2.0
+
+config SOC_CHRISTOPH_MPW
+	select ARM
+	select CPU_CORTEX_M7
+	select CPU_HAS_ARM_MPU
+	select CPU_HAS_FPU
+	select SOC_EARLY_RESET_HOOK
